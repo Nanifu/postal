@@ -1,0 +1,78 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+
+
+string createBarCode (int a);
+
+
+int main(){
+	int zipcode;
+	string barCode, barDigit, barDigit1, barDigit2, barDigit3, barDigit4, barDigit5, barDigit6;
+	cout << "Enter a 6-digit zip code to convert into a barcode: " << endl;
+	cin >> zipcode;
+	int e = zipcode % 10;
+	int d = zipcode / 10 % 10;
+	int c = zipcode / 100 % 10;
+	int b = zipcode / 1000 % 10;
+	int a = zipcode / 10000 % 10;
+	int total = a + b + c + d + e;
+	int checkValue = 10 - (total % 10);
+	createBarCode(a);
+	barDigit1 = barDigit;
+	createBarCode(b);
+	barDigit2 = barDigit;
+	createBarCode(c);
+	barDigit3 = barDigit;
+	createBarCode(d);
+	barDigit4 = barDigit;
+	createBarCode(e);
+	barDigit5 = barDigit;
+	cout << "|" << barDigit1 << barDigit2 << barDigit3 << barDigit4 << barDigit5 << barDigit6 << "|" << endl;
+
+
+	return 0;
+}
+
+
+
+
+
+string createBarCode (int a){
+	string barDigit;
+	if (a == 1){
+		barDigit = ":::||";
+	}
+	if (a == 2){
+		barDigit = "::|:|";
+	}
+	if (a == 3){
+		barDigit = "::||:";
+	}
+	if (a == 4){
+		barDigit = ":|::|";
+	}
+	if (a == 5){
+		barDigit = ":|:|:";
+	}
+	if (a == 6){
+		barDigit = ":||::";
+	}
+	if (a == 7){
+		barDigit = "|:::|";
+	}
+	if (a == 8){
+		barDigit = "|::|:";
+	}
+	if (a == 9){
+		barDigit = "|:|::";
+	}
+	if (a == 0){
+		barDigit = "||:::";
+	}
+
+
+	return barDigit;
+}
+
